@@ -2,7 +2,7 @@
   "name": "Apollo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "ibm-watson": "^5.7.3",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
     "session": "^0.1.0"

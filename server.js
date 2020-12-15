@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const routes = require('./routes')
 const cors = require('cors')
 
 const port = process.envPORT || 4000
@@ -15,11 +16,12 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+app.use('/api/v1/emotion',routes.emotion)
 
-// hello world
-app.use((req,res, next)=> {
-    res.send("Hello world")
-})
+// // hello world
+// app.use((req,res, next)=> {
+//     res.send("Hello world")
+// })
 
 //connection 
 app.listen(port, () => console.log(`Server running on port ${port}`))

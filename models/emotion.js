@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.emotion.belongTo(models.comment)
+      models.emotion.belongsTo(models.comment)
     }
   };
   emotion.init({
