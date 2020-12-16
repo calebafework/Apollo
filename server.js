@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const routes = require('./routes')
 const cors = require('cors')
+const ctrl = require('./controllers')
 
 const port = process.envPORT || 4000
 const app = express()
@@ -17,7 +18,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 app.use('/api/v1/emotion',routes.emotion)
-
+app.use('/api/v1/comments',routes.comment)
+// console.log(ctrl)
 // // hello world
 // app.use((req,res, next)=> {
 //     res.send("Hello world")

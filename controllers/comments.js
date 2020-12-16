@@ -1,7 +1,9 @@
 const db = require('../models')
 
 const create = (req, res) => {
-    db.restaurant.create(req.body)
+    db.comment.create({
+        content: req.body.content
+    })
     .then(newComment => {
         console.log("The new comment", newComment)
         res.json(newComment)

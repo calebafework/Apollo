@@ -1,3 +1,4 @@
 module.exports={
-    emotion: require('./emotion')
+    emotion: require('./emotion'),
+    comment: require('./comment')
 }
