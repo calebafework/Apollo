@@ -26,8 +26,8 @@ const update = (req, res) => {
 
 const index = (req, res) => {
     db.comment.findAll()
-    .then((foundComment)=>{
-        res.json(foundComment)
+    .then((foundComments)=>{
+        res.send(foundComments)
     })
 }
 
