@@ -5,7 +5,6 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const index = (req,res)=>{
     //post request to send data to this
     
-    
     const toneAnalyzer = new ToneAnalyzerV3({
       version: '2017-09-21',
       authenticator: new IamAuthenticator({
@@ -26,8 +25,8 @@ const index = (req,res)=>{
     
 toneAnalyzer.tone(toneParams)
   .then(toneAnalysis => {
-    console.log(JSON.stringify(toneAnalysis, null, 2));
-    res.json(toneAnalysis)
+    // console.log(JSON.stringify(toneAnalysis, null, 2));
+    res.json(toneAnalysis.result.document_tone.tones[0].tone_id)
   })
   .catch(err => {
     console.log('error:', err);
