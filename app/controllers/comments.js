@@ -6,7 +6,7 @@ const create = (req, res) => {
     })
     .then(newComment => {
         console.log("The new comment", newComment)
-        res.json(newComment)
+        res.status(200).json(newComment)
     })
 }
 

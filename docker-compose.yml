@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  apollo:
+    container_name: apollo
+    image: nikkig124/apollo
+    build:
+      context: .
+    ports:
+      - "4000:4000"
+    environment:
+      - EXTERNAL_PORT=4000
+      - PGUSER=postgres
+      - PGPASSWORD=12345
+      - PGDATABASE=apollo
+      - PGHOST=postgres # NAME OF THE SERVICE
+    depends_on:
+      - postgres
+  postgres:
+    container_name: postgres
+    image: "postgres:12"
+    ports:
+      - "5432:5432"
+    environment:
+      - PGUSER=postgres
+      - PGPASSWORD=12345
+      - PGDATABASE=apollo
+    volumes:
+      - apollo_data:/var/lib/postgresql/data
+volumes:
+  apollo_data: {}
