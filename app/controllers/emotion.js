@@ -24,24 +24,21 @@ const index = (req, res) => {
         contentType: 'application/json',
     };
 
-    toneAnalyzer
-        .tone(toneParams)
-        .then(toneAnalysis => {
-            // console.log(JSON.stringify(toneAnalysis, null, 2));
-            // console.log(toneAnalysis);
-            if (toneAnalysis.result) {
-                console.log(toneAnalysis.result.document_tone.tones[0]);
-                return res.send({
-                    tone: toneAnalysis.result.document_tone.tones[0].tone_id,
-                });
-            }
+    try {
+        const toneAnalysis = toneAnalyzer.tone(toneParams);
 
-            res.send(null);
-        })
-        .catch(err => {
-            console.log('error:', err);
-            res.json(err);
-        });
+        if (toneAnalysis.result) {
+            console.log(toneAnalysis.result.document_tone.tones[0]);
+            return res.status(200).json({
+                tone: toneAnalysis.result.document_tone.tones[0].tone_id,
+            });
+        }
+
+        res.send(null);
+    } catch (err) {
+        console.log('error:', err);
+        res.status(400).json(err);
+    }
 };
 
 module.exports = {
