@@ -28,7 +28,6 @@ const corsOptions = {
 // });
 
 app.use(cors(corsOptions));
-app.use('/dev', require('./routes/dev')); //All test routes are placed here
 app.use('/api/v1/emotion', routes.emotion);
 app.use('/api/v1/comment', routes.comment);
 
