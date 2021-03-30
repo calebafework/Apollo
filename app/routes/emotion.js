@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const ctrl = require('../controllers')
+const ctrl = require('../controllers/emotion')
 //change back to POST later
-router.post('/',ctrl.emotion.index)
+router.post('/',ctrl.index)
 
 module.exports = router

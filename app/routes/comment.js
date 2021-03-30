@@ -1,12 +1,12 @@
 const router = require('express').Router()
-const ctrl = require('../controllers')
+const ctrl = require('../controllers/comment')
 
 //who can delete post?
-// Eventually create a user model to use the user id to verify they are the creator of a post. Only 
+// Eventually create a user model to use the user id to verify they are the creator of a post. Only
 // the user who created said post cant delete it.
-router.post('/',ctrl.comment.create)
-router.delete('/',ctrl.comment.deleteComment)
-router.put('/', ctrl.comment.update)
-router.get('/', ctrl.comment.index)
+router.post('/',ctrl.create)
+router.delete('/',ctrl.deleteComment)
+router.put('/', ctrl.update)
+router.get('/', ctrl.index)
 
 module.exports = router
