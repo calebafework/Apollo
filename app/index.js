@@ -20,23 +20,24 @@ const corsOptions = {
 };
 
 //Set proper Headers on Backend
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//     next();
+// });
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
+app.use('/dev', require('./routes/dev')); //All test routes are placed here
 app.use('/api/v1/emotion', routes.emotion);
-app.use('/api/v1/comments', routes.comment);
+app.use('/api/v1/comment', routes.comment);
 
 (async () => {
     try {
         await sequelize.sync(
             { force: false }, //Reset db every time
         );
-        app.listen(process.env.EXTERNAL_PORT); //DEF in docker.compose.yml
+        app.listen(process.env.EXTERNAL_PORT); //DEF in docker-compose.yml
     } catch (error) {
         console.log(error);
     }
