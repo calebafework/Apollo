@@ -1,3 +1,31 @@
 # Apollo
 
-attempting to dockerize using [this tutorial](https://francescociulla.com/crud-api-using-node-sequelize-postgres-and-docker)
+SETUP
+
+```
+docker-compose build
+```
+
+To run the db:
+
+```
+docker-compose up -d apollo_db
+```
+
+add the apollo database:
+
+```
+docker exec -it apollo_db psql -U postgres postgres
+```
+
+then in the psql shell:
+
+```
+CREATE DATABASE apollo;
+```
+
+To run the backend:
+
+```
+docker-compose up -d nsp_backend
+```

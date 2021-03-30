@@ -10,19 +10,20 @@ services:
     environment:
       - EXTERNAL_PORT=4000
       - PGUSER=postgres
-      - PGPASSWORD=12345
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_HOST_AUTH_METHOD=trust
       - PGDATABASE=apollo
-      - PGHOST=postgres # NAME OF THE SERVICE
+      - PGHOST=apollo_db # NAME OF THE SERVICE
     depends_on:
-      - postgres
-  postgres:
-    container_name: postgres
+      - apollo_db
+  apollo_db:
+    container_name: apollo_db
     image: "postgres:12"
     ports:
       - "5432:5432"
     environment:
       - PGUSER=postgres
-      - PGPASSWORD=12345
+      - POSTGRES_PASSWORD=12345
       - PGDATABASE=apollo
     volumes:
       - apollo_data:/var/lib/postgresql/data
