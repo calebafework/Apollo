@@ -41,6 +41,3 @@ app.use('/api/v1/comment', routes.comment);
         console.log(error);
     }
 })();
-
-//connection
-// app.listen(port, () => console.log(`Server running on port ${port}`))
