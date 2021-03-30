@@ -27,5 +27,11 @@ CREATE DATABASE apollo;
 To run the backend:
 
 ```
-docker-compose up -d nsp_backend
+docker-compose up -d apollo
+```
+
+to see logs:
+
+```
+docker logs apollo
 ```
