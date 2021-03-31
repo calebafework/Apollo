@@ -46,5 +46,5 @@ when changes are made to the backend you must stop the containers and rerun:
 
 ```
 docker-compose build
-docker-compose build
+docker-compose up
 ```
