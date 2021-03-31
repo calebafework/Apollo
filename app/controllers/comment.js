@@ -30,8 +30,8 @@ const create = async (req, res) => {
                 tone: toneAnalysis.result.document_tone.tones[0].tone_id,
             });
 
-            console.log('The new comment', newComment);
-            return res.status(200).json(newComment.id);
+            console.log('The new comment', newComment.content);
+            return res.status(200).json({id: newComment.id});
         }
 
         return res.status(400).json('no tone found, try again');
@@ -76,10 +76,11 @@ const index = async (req, res) => {
 
 const getById = async (req, res) => {
     try {
-        const comment = await Comment.findById(req.params.id);
-
-        res.send(comment);
+        const comment = await Comment.findByPk(req.params.id);
+        console.log(comment.dataValues);
+        res.status(200).json(comment.dataValues);
     } catch (e) {
+        console.error(e);
         return res.status(400).json(e);
     }
 };
