@@ -39,5 +39,12 @@ docker logs apollo
 after the first set up you can run both with:
 
 ```
-docker-compose up
+docker-compose build
+```
+
+when changes are made to the backend you must stop the containers and rerun:
+
+```
+docker-compose build
+docker-compose build
 ```
