@@ -8,5 +8,7 @@ router.post('/',ctrl.create)
 router.delete('/',ctrl.deleteComment)
 router.put('/', ctrl.update)
 router.get('/', ctrl.index)
+router.get('/:id', ctrl.getById)
+
 
 module.exports = router

@@ -45,9 +45,20 @@ const index = async (req, res) => {
     }
 };
 
+const getById = async (req, res) => {
+    try {
+        const comment = await Comment.findById(req.params.id);
+
+        res.send(comment);
+    } catch (e) {
+        return res.status(400).json(e);
+    }
+};
+
 module.exports = {
     create,
     deleteComment,
     update,
     index,
+    getById
 };
