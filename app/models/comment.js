@@ -13,6 +13,10 @@ const Comment = db.define('comment', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    tone: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
 });
 
 module.exports = Comment;

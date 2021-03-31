@@ -28,7 +28,7 @@ const corsOptions = {
 // });
 
 app.use(cors(corsOptions));
-app.use('/api/v1/emotion', routes.emotion);
+// app.use('/api/v1/emotion', routes.emotion);
 app.use('/api/v1/comment', routes.comment);
 
 (async () => {
