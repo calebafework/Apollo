@@ -35,3 +35,9 @@ to see logs:
 ```
 docker logs apollo
 ```
+
+after the first set up you can run both with:
+
+```
+docker-compose up
+```
