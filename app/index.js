@@ -5,7 +5,6 @@ const cors = require('cors');
 const ctrl = require('./controllers');
 const sequelize = require('./utils/database'); //database initializations
 const Comment = require('./models/comment'); //REQUIRED even if IDE says not used!
-const Emotion = require('./models/emotion');
 
 const port = process.envPORT || 4000;
 const app = express();
