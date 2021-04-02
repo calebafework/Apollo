@@ -27,7 +27,7 @@ const create = async (req, res) => {
             });
 
             console.log('The new comment', newComment.id);
-            return res.send(newComment);
+            return res.status(201).send(newComment)
         }
 
         return res.status(400).send('no tone found, try again');
