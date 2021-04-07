@@ -4,10 +4,13 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 
 const create = async (req, res) => {
     try {
-        const toneAnalysis = getTone(req.body.content);
+        const toneAnalysis = await getTone(req.body.content);
+        console.log(toneAnalysis);
+        console.log(req.body.content)
 
         if (toneAnalysis.result) {
             const newComment = await Comment.create({
+              
                 content: req.body.content,
                 tone: toneAnalysis.result.document_tone.tones[0].tone_id,
             });
